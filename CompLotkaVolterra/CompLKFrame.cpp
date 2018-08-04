@@ -271,6 +271,7 @@ void CompLKFrame::OnTimer(wxTimerEvent& WXUNUSED(event))
 		pChart->RecalculateTransform();
 		pChart->RecalculateBounds();
 
+		pChart->Update();
 
 		pChart->GetAxis(0)->SetUnscaledRange(0, 1);
 		pChart->GetAxis(1)->SetUnscaledRange(0, 1);
@@ -282,13 +283,11 @@ void CompLKFrame::OnTimer(wxTimerEvent& WXUNUSED(event))
 		vtkVector2i pos;
 		vtkVector2i lastPos;
 
-		pChart->Update();
-
 		// rotate
 		mouseEvent.SetButton(vtkContextMouseEvent::LEFT_BUTTON);
-		lastPos.Set(0, 0);
+		lastPos.Set(10, 10);
 		mouseEvent.SetLastScreenPos(lastPos);
-		pos.Set(80, 80);
+		pos.Set(73, 124);
 		mouseEvent.SetScreenPos(pos);
 
 		vtkVector2d sP(pos.Cast<double>().GetData());
@@ -333,8 +332,9 @@ void CompLKFrame::OnSize(wxSizeEvent& WXUNUSED(event))
 		pChart->GetAxis(1)->SetUnscaledRange(0, 1);
 		pChart->GetAxis(2)->SetUnscaledRange(0, 1);
 		
-
 		pChart->Update();
+
+		Refresh();
 	}
 }
 
