@@ -296,7 +296,7 @@ void CompLKFrame::OnTimer(wxTimerEvent& WXUNUSED(event))
 		vtkVector2d screenPos(mouseEvent.GetScreenPos().Cast<double>().GetData());
 		vtkVector2d lastScreenPos(mouseEvent.GetLastScreenPos().Cast<double>().GetData());
 		pChart->MouseMoveEvent(mouseEvent);
-
+		
 		pChart->Update();
 
 		Refresh();
