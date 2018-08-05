@@ -271,19 +271,23 @@ void CompLKFrame::OnTimer(wxTimerEvent& WXUNUSED(event))
 		pChart->RecalculateTransform();
 		pChart->RecalculateBounds();
 
-		pChart->Update();
-
 		pChart->GetAxis(0)->SetUnscaledRange(0, 1);
 		pChart->GetAxis(1)->SetUnscaledRange(0, 1);
 		pChart->GetAxis(2)->SetUnscaledRange(0, 1);
 
+		pChart->Update();
+
+		// disabled rotation before showing the chart until I figure out the labels issue
+
+		/*
 		vtkContextMouseEvent mouseEvent;
 		mouseEvent.SetInteractor(m_pVTKWindow->GetRenderWindow()->GetInteractor());
 
 		vtkVector2i pos;
 		vtkVector2i lastPos;
-
+	
 		// rotate
+
 		mouseEvent.SetButton(vtkContextMouseEvent::LEFT_BUTTON);
 		lastPos.Set(10, 10);
 		mouseEvent.SetLastScreenPos(lastPos);
@@ -298,7 +302,7 @@ void CompLKFrame::OnTimer(wxTimerEvent& WXUNUSED(event))
 		pChart->MouseMoveEvent(mouseEvent);
 		
 		pChart->Update();
-
+		*/
 		Refresh();
 	}
 }
