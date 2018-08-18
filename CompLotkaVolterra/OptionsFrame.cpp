@@ -1,3 +1,6 @@
+
+#define wxNEEDS_DECL_BEFORE_TEMPLATE
+
 #include <wx/statline.h>
 #include <wx/valgen.h>
 #include <wx/valnum.h>
