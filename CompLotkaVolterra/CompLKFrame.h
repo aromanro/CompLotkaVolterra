@@ -47,8 +47,6 @@
 
 
 #include <atomic>
-#include <list>
-
 
 
 #include "Options.h"
