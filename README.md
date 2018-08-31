@@ -1,7 +1,7 @@
 # CompLotkaVolterra
 Competitive Lotka–Volterra equations, solved using Runge-Kutta methods. Four dimensional system.
 
-Project page on https://github.com/aromanro/CompLotkaVolterra
+Project page on https://compphys.go.ro/chaos/
 
 Very shortly:
 
