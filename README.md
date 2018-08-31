@@ -1,9 +1,9 @@
 # CompLotkaVolterra
 Competitive Lotka–Volterra equations, solved using Runge-Kutta methods. Four dimensional system.
 
-Description coming soon on https://compphys.go.ro
+Project page on https://github.com/aromanro/CompLotkaVolterra
 
-Until then, very shortly:
+Very shortly:
 
 Competitive Lotka–Volterra equations, solved using Runge-Kutta methods (including adaptive ones) - reused from the electrical field lines project with basically no change (there is some change in the adaptive method in order to compile this). This is the four dimensional system, the lowest dimensional one exhibiting chaos. Features a nice strange attractor.
 
