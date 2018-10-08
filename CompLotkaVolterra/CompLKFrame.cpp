@@ -74,6 +74,7 @@ CompLKFrame::~CompLKFrame()
 {
 	DestroyVTK();
 	if (m_pVTKWindow) m_pVTKWindow->Delete();
+	currentOptions.Close();
 }
 
 void CompLKFrame::ConstructVTK()
