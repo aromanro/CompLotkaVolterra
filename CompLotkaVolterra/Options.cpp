@@ -4,7 +4,7 @@
 #include <wx/stdpaths.h> 
 
 Options::Options()
-	: nrPoints(300000), method(4)
+	: nrPoints(300000), method(4), m_fileconfig(nullptr)
 {
 }
 
