@@ -34,16 +34,19 @@ void Options::Close()
 
 void Options::Load()
 {
+	Open();
 	wxConfigBase *conf=wxConfigBase::Get(false);
 	if (conf)
 	{
 		nrPoints = conf->ReadLong("/nrPoints", 300000);
 		method = conf->ReadLong("/method", 4);
 	}
+	Close();
 }
 
 void Options::Save()
 {
+	Open();
 	wxConfigBase *conf=wxConfigBase::Get(false);
 	if (conf)
 	{
@@ -53,4 +56,5 @@ void Options::Save()
 
 	if (m_fileconfig)
 		m_fileconfig->Flush();
+	Close();
 }

@@ -39,13 +39,13 @@ public:
 	void Load();
 	void Save();
 
-	void Open();
-	void Close();
-
 	int nrPoints;
 	int method;
 
 protected:
+	void Open();
+	void Close();
+
 	wxFileConfig *m_fileconfig;
 };
 

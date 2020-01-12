@@ -66,7 +66,6 @@ CompLKFrame::CompLKFrame(const wxString& title, const wxPoint& pos, const wxSize
 	//m_pVTKWindow->DebugOn();
 	m_pVTKWindow->DebugOff();
 
-	currentOptions.Open();
 	currentOptions.Load();
 
 	ConstructVTK();
@@ -77,7 +76,6 @@ CompLKFrame::~CompLKFrame()
 {
 	DestroyVTK();
 	if (m_pVTKWindow) m_pVTKWindow->Delete();
-	currentOptions.Close();
 }
 
 void CompLKFrame::ConstructVTK()
@@ -139,9 +137,7 @@ void CompLKFrame::OnOptions(wxCommandEvent& /*event*/)
 	optionsFrame->options = currentOptions;
 	if (wxID_OK == optionsFrame->ShowModal())
 	{
-		currentOptions.Close();
 		currentOptions = optionsFrame->options;
-		currentOptions.Open();
 		currentOptions.Save();
 	}
 
