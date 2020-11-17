@@ -1,0 +1,16 @@
+
+*.tlog
+*.ipch
+*.db
+*.ipdb
+*.iobj
+*.pdb
+*.obj
+*.log
+*.dat
+.vs/CompLotkaVolterra/v16/.suo
+.vs/CompLotkaVolterra/v15/.suo
+*.exe
+*.lastcodeanalysissucceeded
+*.recipe
+*.txt
