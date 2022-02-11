@@ -12,12 +12,10 @@ class MyVector4d : public Eigen::Vector4d
 		*this = Constant(val);
 	}
 
-
 	template <typename Derived> MyVector4d(const Eigen::EigenBase<Derived>& x)
 	{
 		Eigen::Vector4d::operator=(x);
 	}
-
 };
 
 

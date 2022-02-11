@@ -23,5 +23,5 @@ class CompLKApp  : public wxApp
 public:
 	CompLKFrame * frame = nullptr;
 
-	virtual bool OnInit() override;
+	bool OnInit() override;
 };
