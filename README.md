@@ -1,6 +1,8 @@
 # CompLotkaVolterra
 Competitive Lotka–Volterra equations, solved using Runge-Kutta methods. Four dimensional system.
 
+[![CodeFactor](https://www.codefactor.io/repository/github/aromanro/complotkavolterra/badge)](https://www.codefactor.io/repository/github/aromanro/complotkavolterra)
+
 Project page on https://compphys.go.ro/chaos/
 
 Very shortly:
