@@ -16,7 +16,7 @@
 wxDECLARE_APP(CompLKApp);
 
 OptionsFrame::OptionsFrame(const wxString & title, wxWindow* parent)
-	   : wxDialog(parent, wxID_ANY, title, wxDefaultPosition, wxSize(400, 150))
+	   : wxDialog(parent, wxID_ANY, title, wxDefaultPosition, wxSize(370, 125))
 {
 	CreateControls();
 
@@ -30,9 +30,11 @@ void OptionsFrame::CreateControls()
 	wxBoxSizer *vbox = new wxBoxSizer(wxVERTICAL);
 	SetSizer(vbox);
 
+	vbox->AddSpacer(5);
+
 	// box with margin to contain option controls
 	wxBoxSizer* boxSizer = new wxBoxSizer(wxVERTICAL);
-	vbox->Add(boxSizer, 0, wxALIGN_CENTER_HORIZONTAL| wxGROW | wxALL, 5);
+	vbox->Add(boxSizer, 0, wxGROW, 5);
 
 	// ******************************************************************
 	// now option controls
@@ -40,29 +42,30 @@ void OptionsFrame::CreateControls()
 	// nr points
 
 	wxBoxSizer* box = new wxBoxSizer(wxHORIZONTAL);
-	boxSizer->Add(box, 0, wxGROW|wxALL, 5);
+	boxSizer->Add(box, 0, wxGROW, 5);
 
 	wxStaticText* label = new wxStaticText(this, wxID_STATIC, "&Nr. Points:", wxDefaultPosition, wxSize(60, -1), wxALIGN_RIGHT);
-	box->Add(label, 0, wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL|wxALL, 5);
+	box->Add(label, 0, wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
 	
 	wxString str = wxString::Format(wxT("%i"), options.nrPoints);
 	wxTextCtrl* nrPointsCtrl = new wxTextCtrl(this, ID_NRPOINTS, str, wxDefaultPosition, wxSize(60, -1), 0);
-	box->Add(nrPointsCtrl, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+	box->Add(nrPointsCtrl, 0, wxALIGN_CENTER_VERTICAL, 5);
 
 
-	box->Add(5, 5, 1, wxALIGN_CENTER_VERTICAL|wxALL, 5); // pushes to the right
+	box->Add(5, 5, 1, wxALIGN_CENTER_VERTICAL, 5); // pushes to the right
 
 	// method
 
 	label = new wxStaticText(this, wxID_STATIC, "&Method:", wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT);
-	box->Add(label, 0, wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL|wxALL, 5);
+	box->Add(label, 0, wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
 	
 	wxString methodStrings[] = { "Euler", "Midpoint", "Heun", "Ralston", "RK4", "RK3/8", "Heun-Euler (adaptive)", "Bogacki-Shampine (adaptive)", "Cash-Karp (adaptive)", "Fehlberg (adaptive)", "Dormand-Prince (adaptive)" };
 
 	wxChoice* methodChoice = new wxChoice (this, ID_METHOD, wxDefaultPosition, wxSize(160, -1), WXSIZEOF(methodStrings), methodStrings, 0 );
 	methodChoice->Select(options.method);
-	box->Add(methodChoice, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+	box->Add(methodChoice, 0, wxALIGN_CENTER_VERTICAL, 5);
 
+	box->AddSpacer(5);
 
 	// ******************************************************************
 	// setting validators
@@ -79,9 +82,10 @@ void OptionsFrame::CreateControls()
 	// ******************************************************************
 
 	// divider line
+	boxSizer->AddSpacer(5);
 
 	wxStaticLine* line = new wxStaticLine(this, wxID_STATIC, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
-	boxSizer->Add(line, 0, wxGROW|wxALL, 5);
+	boxSizer->Add(line, 0, wxGROW, 5);
 
 	// bottom box with ok & cancel buttons
 
