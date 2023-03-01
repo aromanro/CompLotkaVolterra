@@ -1,5 +1,6 @@
 #define __RK_IMPL 1
 
+#include <assert.h>
 
 #include "RungeKutta.h"
 
