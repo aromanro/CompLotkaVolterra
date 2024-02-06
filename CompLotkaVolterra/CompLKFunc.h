@@ -5,19 +5,23 @@
 class MyVector4d : public Eigen::Vector4d
 {
 	public:
-	MyVector4d() {}
+		MyVector4d() = default;
 
-	MyVector4d(double val)
-	{
-		*this = Constant(val);
-	}
+		explicit MyVector4d(double val)
+		{
+			Eigen::Vector4d::operator=(Eigen::Vector4d::Constant(val));
+		}
 
-	template <typename Derived> MyVector4d(const Eigen::EigenBase<Derived>& x)
-	{
-		Eigen::Vector4d::operator=(x);
-	}
+		template<typename Derived> explicit MyVector4d(const Eigen::EigenBase<Derived>& x)
+		{
+			Eigen::Vector4d::operator=(x);
+		}
 };
 
+inline double abs(const Eigen::Vector4d& vec)
+{
+	return sqrt(vec.transpose() * vec);
+}
 
 inline double abs(const MyVector4d& vec)
 {
@@ -27,7 +31,7 @@ inline double abs(const MyVector4d& vec)
 template<typename T1, typename T2> class CompLKFunc
 {
 public:
-	CompLKFunc(double s = 1.)
+	explicit CompLKFunc(double s = 1.)
 	{
 		m_growthRates << 1., 0.72, 1.53, 1.27;
 
@@ -45,7 +49,7 @@ public:
 
 	T1 operator()(const T1& x) const
 	{
-		const T1 sum = m_interactionMatrix * x;
+		const T1 sum(m_interactionMatrix * x);
 
 		T1 res;
 
@@ -58,7 +62,7 @@ public:
 		return std::move(res);
 	}
 
-protected:
+private:
 	T1 m_growthRates;
 	T2 m_interactionMatrix;
 };
@@ -68,17 +72,17 @@ protected:
 template<typename T1, typename T2> class FunctorForLK
 {
 public:
-	FunctorForLK() {}
-	FunctorForLK(const CompLKFunc<T1, T2>& LKfunc) : m_LKfunc(LKfunc) {}
+	FunctorForLK() = default;
+	explicit FunctorForLK(const CompLKFunc<T1, T2>& LKfunc) : m_LKfunc(LKfunc) {}
 	
 	template <typename Derived> T1 operator()(double /*t*/, const Eigen::EigenBase<Derived>& pos) 
 	{
-		const T1 val = pos;
+		const T1 val(pos);
 
 		return m_LKfunc(val);
 	}
 
-protected:
+private:
 	CompLKFunc<T1, T2> m_LKfunc;
 };
 

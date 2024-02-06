@@ -21,8 +21,7 @@ public:
 	Options(const Options& other)
 		:
 		nrPoints(other.nrPoints),
-		method(other.method),
-		m_fileconfig(nullptr)
+		method(other.method)
 	{
 	}
 
@@ -42,10 +41,10 @@ public:
 	int nrPoints;
 	int method;
 
-protected:
+private:
 	void Open();
 	void Close();
 
-	wxFileConfig *m_fileconfig;
+	wxFileConfig *m_fileconfig = nullptr;
 };
 

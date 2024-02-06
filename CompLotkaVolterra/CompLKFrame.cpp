@@ -36,7 +36,7 @@ wxEND_EVENT_TABLE()
 
 
 CompLKFrame::CompLKFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
-	: wxFrame(NULL, wxID_ANY, title, pos, size),
+	: wxFrame(nullptr, wxID_ANY, title, pos, size),
 	timer(this, 101), runningThreads(0)
 {
 	wxMenu *menuFile = new wxMenu;
@@ -322,7 +322,7 @@ void CompLKFrame::OnSize(wxSizeEvent& WXUNUSED(event))
 	}
 
 #if VTK_MAJOR_VERSION > 4 || (VTK_MAJOR_VERSION == 4 && VTK_MINOR_VERSION > 0)
-	if (m_pVTKWindow) m_pVTKWindow->InvokeEvent(vtkCommand::ConfigureEvent, NULL);
+	if (m_pVTKWindow) m_pVTKWindow->InvokeEvent(vtkCommand::ConfigureEvent, nullptr);
 #endif
 
 	if (pChart)

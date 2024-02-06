@@ -55,7 +55,7 @@ class CompLKFrame : public wxFrame
 {
 public:
 	CompLKFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
-	~CompLKFrame();
+	~CompLKFrame() override;
 
 
 	std::atomic_int runningThreads;
